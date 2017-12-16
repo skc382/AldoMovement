@@ -6,7 +6,7 @@ package shree.exp.zmisc;
 public class SecondLargestInArray {
 
     public static void main(String[] args) {
-        int[] input = {21,34,56,78,54,32,10};
+        int[] input = {21,34,78,54,56,32,10};
 
         int first = Integer.MIN_VALUE, second = Integer.MIN_VALUE;
 

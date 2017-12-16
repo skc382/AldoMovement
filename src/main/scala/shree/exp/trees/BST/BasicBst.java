@@ -1,7 +1,5 @@
-package shree.exp.trees;
+package shree.exp.trees.BST;
 
-
-import shree.exp.stacks.BasicQ;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -77,7 +77,7 @@ public class Utils {
 
         for (int i = 0; i < matrix.length ; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
-                if(j < matrix.length - 1) {
+                if(j < matrix[0].length - 1) {
                     System.out.print(matrix[i][j] + ", ");
                 } else {
                     System.out.print(matrix[i][j]);

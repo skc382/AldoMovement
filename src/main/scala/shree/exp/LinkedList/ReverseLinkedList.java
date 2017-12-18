@@ -1,11 +1,7 @@
 package shree.exp.LinkedList;
 
-import java.util.ArrayList;
-import java.util.List;
+import shree.exp.LinkedList.Node;
 
-/**
- * Created by shreedharkempanayakanahallichampakaram on 12/6/17.
- */
 public class ReverseLinkedList {
 
     public static void main(String[] args) {
@@ -18,11 +14,18 @@ public class ReverseLinkedList {
             curr=curr.next;
         }
 
-        Node rev = reverse(head);
+//        Node rev = reverse(head);
+//
+//        while(rev != null) {
+//            System.out.println(rev.val);
+//            rev = rev.next;
+//        }
 
-        while(rev != null) {
-            System.out.println(rev.val);
-            rev = rev.next;
+        Node node = rev(head);
+        ;
+        while(node != null) {
+            System.out.println(node.val);
+            node = node.next;
         }
     }
 
@@ -40,26 +43,48 @@ public class ReverseLinkedList {
         return prev;
     }
 
-//    private static void reverseRecursive(Node curr, Node next, Node head) {
-//
-//        if(curr.next == null) {
-//            head = curr;
-//            curr.next = next;
-//            return;
-//        }
-//
-//
-//    }
+    /**
+     * -- YET TO BE DONE !!!
+     * @param node
+     * @return
+     */
+    private static Node reverseRecursive(Node node) {
 
-    static class Node {
-        int val;
-        Node next;
+        Node first, rest;
 
-        public Node(int val, Node next) {
-            this.val = val;
-            this.next = next;
+        if(node == null)
+            return node;
+
+        first = node;
+        rest = first.next;
+
+        if(rest.next == null) {
+            return node;
         }
+
+        reverseRecursive(rest);
+        rest.next = first;
+        first.next = null;
+
+
+        return rest;
     }
+
+    private static Node rev(Node head) {
+
+        Node curr = head;
+        Node prev = null;
+
+        while(curr != null) {
+            Node temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+
+        return prev;
+    }
+
 
 }
 

@@ -11,6 +11,10 @@ public class BasicBst {
     public BasicBst() {
     }
 
+    public Node getRoot() {
+        return root;
+    }
+
     public void add(int n) {
         if(root == null) {
             root = new Node(n);
@@ -25,7 +29,7 @@ public class BasicBst {
             return new Node(val);
         }
 
-        if(node.val >= val) {
+        if(node.data >= val) {
             node.left = addVal(node.left, val);
         } else {
             node.right = addVal(node.right, val);
@@ -67,7 +71,7 @@ public class BasicBst {
             return;
         }
 
-        System.out.print(node.val+", ");
+        System.out.print(node.data +", ");
         preOrderTraversal(node.left);
         preOrderTraversal(node.right);
     }
@@ -78,7 +82,7 @@ public class BasicBst {
         }
 
         inOrderTraversal(node.left);
-        System.out.print(node.val+", ");
+        System.out.print(node.data +", ");
         inOrderTraversal(node.right);
     }
 
@@ -100,7 +104,7 @@ public class BasicBst {
 
         postOrderTraversal(node.left);
         postOrderTraversal(node.right);
-        System.out.print(node.val+", ");
+        System.out.print(node.data +", ");
     }
 
     private void levelOrderTraversal(Node node) {
@@ -109,7 +113,7 @@ public class BasicBst {
 
         while(q.peek() != null) {
             Node curr = q.remove();
-            System.out.print(curr.val+", ");
+            System.out.print(curr.data +", ");
             q.add(curr.left);
             q.add(curr.right);
         }
@@ -125,9 +129,9 @@ public class BasicBst {
             return null;
         }
 
-        if(root.val > key) {
+        if(root.data > key) {
             root.left = deleteNode(root.left, key);
-        } else if(root.val < key) {
+        } else if(root.data < key) {
             root.right = deleteNode(root.right, key);
         } else {
 
@@ -142,32 +146,22 @@ public class BasicBst {
             }
 
             // Has both children so find the inorder successor
-            root.val = inOrderSuccessor(root);
+            root.data = inOrderSuccessor(root);
 
-            root.right = deleteNode(root.right, root.val);
+            root.right = deleteNode(root.right, root.data);
         }
 
         return root;
     }
 
     private int inOrderSuccessor(Node root) {
-        int minv = root.val;
+        int minv = root.data;
         while(root.left != null) {
             root = root.left;
-            minv = root.val;
+            minv = root.data;
         }
 
         return minv;
-    }
-
-    class Node {
-        int val;
-        Node left;
-        Node right;
-
-        public Node(int val) {
-            this.val = val;
-        }
     }
 
     public static void main(String[] args) {

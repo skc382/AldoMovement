@@ -1,8 +1,5 @@
 package shree.exp.trees;
 
-/**
- * Created by shreedharkempanayakanahallichampakaram on 10/26/17.
- */
 // Java program to create complete Binary Tree from its Linked List
 // representation
 

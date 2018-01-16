@@ -1,7 +1,5 @@
 package shree.exp;
 
-import java.util.stream.Stream;
-
 /**
  * Created by shreedharkempanayakanahallichampakaram on 10/7/17.
  */
@@ -86,5 +84,9 @@ public class Utils {
             System.out.println();
         }
         System.out.println();
+    }
+
+    public static void main(String[] args) {
+        //Some code
     }
 }

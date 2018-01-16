@@ -29,11 +29,11 @@ class LowestCommonAncestorOne {
 
         LCA l = new LCA();
 
-        l.findLCA(root, 54, 80);
+        l.findLCA(root, 76, 80);
 
         LCATWO l2 = new LCATWO();
 
-        System.out.println("L2 LCA: "+ l2.findLCA(root, 54, 80));
+        System.out.println("L2 LCA: "+ l2.findLCA(root, 76, 80));
 
     }
 
@@ -108,13 +108,11 @@ class LowestCommonAncestorOne {
             Integer leftTreeVal = recurse(node.left, n1, n2);
             Integer rightTreeVal = recurse(node.right, n1, n2);
 
-            if(leftTreeVal == null && rightTreeVal != null) {
-                return leftTreeVal;
-            } else if(leftTreeVal != null && rightTreeVal == null) {
-                return rightTreeVal;
+            if(leftTreeVal != null && rightTreeVal != null) {
+                return node.data;
             }
 
-            return node.data;
+            return leftTreeVal != null ? leftTreeVal : rightTreeVal;
         }
     }
 

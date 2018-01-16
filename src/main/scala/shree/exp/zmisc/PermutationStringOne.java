@@ -15,7 +15,8 @@ public class PermutationStringOne {
     public static void main(String[] args) {
 
         Set<String> result = new HashSet<>();
-        permute("BLahShreedhar", 0, 12, result);
+        String s = "BLa";
+        permute(s, 0, s.length()-1, result);
 
         result.forEach(e -> System.out.println(e));
     }

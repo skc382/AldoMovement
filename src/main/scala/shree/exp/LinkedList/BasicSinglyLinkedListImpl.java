@@ -27,8 +27,35 @@ public class BasicSinglyLinkedListImpl {
             return head;
         }
 
+        public void swap(int n1, int n2) {
+
+            Node curr = head;
+            Node first = null, second = null;
+
+            while(curr != null) {
+                int val = curr.val;
+                if((val == n1) || (val == n2)) {
+                    if(first == null) {
+                        first = curr;
+                    } else {
+                        second = curr;
+                    }
+                }
+                curr = curr.next;
+            }
+
+            if(first == null || second == null) {
+                System.out.println("Both elements not found");
+                return;
+            }
+
+            int temp = first.val;
+            first.val = second.val;
+            second.val = temp;
+        }
+
         public Node insertAtHead(int item) {
-            Node node = new Node(item);
+            Node node = new Node(item, null);
 
             Node temp = head;
             head = node;
@@ -38,7 +65,7 @@ public class BasicSinglyLinkedListImpl {
         }
 
         public Node insertAtEnd(int item) {
-            Node node = new Node(item);
+            Node node = new Node(item, null);
 
             Node curr = head;
 
@@ -57,7 +84,7 @@ public class BasicSinglyLinkedListImpl {
         }
 
         public Node insertAtPosition(int item, int position) {
-            Node node = new Node(item);
+            Node node = new Node(item, null);
 
             int count = 1;
 
@@ -85,7 +112,7 @@ public class BasicSinglyLinkedListImpl {
 
             Node curr = head;
             int count = 1;
-            while(curr != null && curr.data != value) {
+            while(curr != null && curr.val != value) {
                 curr = curr.next;
                 count++;
             }
@@ -109,7 +136,7 @@ public class BasicSinglyLinkedListImpl {
                 return - 1;
             }
 
-            if(node.data == value) {
+            if(node.val == value) {
                 return position;
             }
 
@@ -139,7 +166,7 @@ public class BasicSinglyLinkedListImpl {
             Node prev = head;
             Node curr = prev.next;
 
-            while(curr != null && curr.data != value) {
+            while(curr != null && curr.val != value) {
                 prev = curr;
                 curr = curr.next;
             }
@@ -153,14 +180,16 @@ public class BasicSinglyLinkedListImpl {
 
         }
 
-    }
+        public void print() {
+            Node curr = head;
 
-    public static class Node {
-        public int data;
-        public Node next;
-
-        Node(int data) {
-            this.data = data;
+            System.out.println("Printing list: ");
+            while(curr != null) {
+                System.out.print(curr.val+", ");
+                curr = curr.next;
+            }
+            System.out.println();
         }
+
     }
 }

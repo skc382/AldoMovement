@@ -2,9 +2,6 @@ package shree.exp.zmisc;
 
 import java.util.Stack;
 
-/**
- * Created by schampakaram on 1/16/18.
- */
 public class ValidParanthesis {
 
     public static void main(String[] args) {

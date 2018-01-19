@@ -1,10 +1,8 @@
-package shree.exp.Arrays;
+package shree.exp.numbers;
 
 import java.util.HashMap;
 
-/**
- * Created by schampakaram on 1/18/18.
- */
+
 public class PrintAllSumPairs {
 
     public static void main(String[] args) {

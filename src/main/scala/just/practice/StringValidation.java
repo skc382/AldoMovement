@@ -1,7 +1,5 @@
 package just.practice;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-import com.sun.tools.corba.se.idl.InvalidArgument;
 
 import java.util.Stack;
 

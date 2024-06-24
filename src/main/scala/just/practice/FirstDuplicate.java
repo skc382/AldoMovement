@@ -6,7 +6,7 @@ package just.practice;
 public class FirstDuplicate {
 
     public static void main(String[] args) {
-        int[] b = {2, 3, 3, 1, 5, 2};
+        int[] b = {2, 4, 0, 2, 3, 2};
 
         // [2, 3, 3, 1, 5, 2]
 

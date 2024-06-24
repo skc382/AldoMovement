@@ -1,7 +1,6 @@
 package shree.exp.trees.BST;
 
 
-import com.sun.source.tree.BinaryTree;
 
 public class IsBstCheck {
 

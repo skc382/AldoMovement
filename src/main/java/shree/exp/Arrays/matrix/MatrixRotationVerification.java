@@ -1,5 +1,7 @@
 package shree.exp.Arrays.matrix;
 
+import shree.exp.Utils;
+
 /**
  * Created by shreedharkempanayakanahallichampakaram on 10/22/17.
  */
@@ -14,7 +16,9 @@ public class MatrixRotationVerification {
                         {'2', '3', 'x', '1'}};
 
         MatrixRotationVerification m = new MatrixRotationVerification();
+        Utils.printMatrix(matrix);
         System.out.println(m.matrix(matrix));
+        Utils.printMatrix(matrix);
     }
 
     public boolean matrix(char[][] matrix) {

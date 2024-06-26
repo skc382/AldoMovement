@@ -4,7 +4,7 @@ package shree.exp.HardProblems;
 class RemoveDuplicatesInString {
 
     public static void main(String[] args) {
-        String res = removeDuplicateLetters("aadbbnnggh");
+        String res = removeDuplicateLetters("AAdbbnnggh");
         System.out.println(res);
 
     }
@@ -14,7 +14,15 @@ class RemoveDuplicatesInString {
         StringBuilder builder = new StringBuilder();
 
         for(int i = 0; i < s.length(); i++ ) {
-            int index  = s.charAt(i) % 97;
+
+            // String.valueOf(s.charAt(i)).toLowerCase().charAt(0) % 97;
+//            int index  = s.charAt(i) % 97;
+            int index;
+            if(s.charAt(i) < 97) {
+                index = s.charAt(i) % 65;
+            } else {
+                index = s.charAt(i) % 97;
+            }
 
             if(!char_hash[index]) {
                 char_hash[index] = true;

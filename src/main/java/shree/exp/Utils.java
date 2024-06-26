@@ -15,9 +15,15 @@ import java.util.stream.Stream;
  */
 public class Utils {
 
-    public static void printArray(List<Integer> arrayList) {
-        int[] arr = arrayList.stream().mapToInt(x -> x).toArray();
-        printArray(arr);
+    public static <T> void  printArray(List<T> arrayList) {
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (i < arrayList.size() - 1) {
+                System.out.print(arrayList.get(i) + ", ");
+            } else {
+                System.out.print(arrayList.get(i));
+            }
+        }
+        System.out.println();
     }
 
     public static void printArray(int[] array) {
@@ -136,14 +142,15 @@ public class Utils {
         }
         printMatrixWithHeadings(rowHeadingsCh, columnHeadingsCh, matrix);
     }
+
     public static void printMatrixWithHeadings(Character[] rowHeadings, Character[] columnHeadings, int[][] matrix) {
         String[][] matrixWitHeadings = new String[matrix.length][matrix[0].length];
 
-        if(rowHeadings.length != matrix.length) {
+        if (rowHeadings.length != matrix.length) {
             throw new RuntimeException("RowHeadings length doesn't match the matrix");
         }
 
-        if(columnHeadings.length != matrix[0].length) {
+        if (columnHeadings.length != matrix[0].length) {
             throw new RuntimeException("ColumnHeadings length doesn't match the matrix");
         }
 
@@ -174,7 +181,7 @@ public class Utils {
 
         for (int i = 0; i < matrix.length; i++) {
             for (int j = -1; j < matrix[0].length; j++) {
-                if(j == -1) {
+                if (j == -1) {
                     System.out.print(rowHeadings[i] + SINGLE_SPACE_SEPERATOR);
                 } else {
                     System.out.print(matrix[i][j] + DOUBLE_SPACE);

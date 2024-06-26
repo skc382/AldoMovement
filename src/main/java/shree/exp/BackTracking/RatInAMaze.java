@@ -5,10 +5,13 @@ import shree.exp.Utils;
 
 public class RatInAMaze {
 
-    public static void main(String args[])
-    {
+    /*
+     * https://www.geeksforgeeks.org/rat-in-a-maze/
+     */
+    public static void main(String args[]) {
         RatInAMaze rat = new RatInAMaze();
-        int maze[][] = {{1, 0, 0, 0},
+        int maze[][] = {
+                {1, 0, 0, 0},
                 {1, 1, 0, 1},
                 {0, 1, 0, 0},
                 {1, 1, 1, 1}
@@ -18,9 +21,9 @@ public class RatInAMaze {
 
     public void solveMaze(int[][] maze) {
 
-        int[][] solution  = new int[maze.length][maze[0].length];
+        int[][] solution = new int[maze.length][maze[0].length];
 
-        if(solveRecursive(maze, 0, 0, solution)) {
+        if (solveRecursive(maze, 0, 0, solution)) {
             Utils.printMatrix(solution);
         } else {
             System.out.println("No Solution");
@@ -29,19 +32,19 @@ public class RatInAMaze {
 
     private boolean solveRecursive(int[][] maze, int i, int j, int[][] solution) {
 
-        if(i == maze.length-1 && j == maze[0].length-1) {
+        if (i == maze.length - 1 && j == maze[0].length - 1) {
             solution[i][j] = 1;
             return true;
         }
 
-        if(isSafe(maze, i, j)) {
+        if (isSafe(maze, i, j)) {
 
             solution[i][j] = 1;
-            if(solveRecursive(maze, i+1, j, solution)) {
+            if (solveRecursive(maze, i + 1, j, solution)) {
                 return true;
             }
 
-            if(solveRecursive(maze, i, j+1, solution)) {
+            if (solveRecursive(maze, i, j + 1, solution)) {
                 return true;
             }
 
@@ -52,8 +55,8 @@ public class RatInAMaze {
     }
 
     private boolean isSafe(int[][] maze, int i, int j) {
-        return ( (i>=0) && (i<maze.length)  && (j>=0) && (j<maze[0].length)
-         && (maze[i][j] == 1));
+        return ((i >= 0) && (i < maze.length) && (j >= 0) && (j < maze[0].length)
+                && (maze[i][j] == 1));
     }
 
 
